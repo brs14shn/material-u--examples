@@ -15,6 +15,8 @@ import React from "react";
 import ShoppingCartCheckoutIcon from "@mui/icons-material/ShoppingCartCheckout";
 import DrawerComp from "./DrawerComp";
 
+const PAGES = ["PRODUCTS"];
+
 const Header = () => {
   const [value, setValue] = React.useState("two");
 
@@ -29,7 +31,31 @@ const Header = () => {
       <AppBar sx={{ background: "#0845e4" }}>
         <Toolbar>
           <ShoppingCartCheckoutIcon />
-          <Tabs
+          {isMatch ? (
+            <>
+              <Typography>SHOP</Typography>
+              <DrawerComp />
+            </>
+          ) : (
+            <>
+              <Tabs
+                textColor="white"
+                value={value}
+                indicatorColor="secondary"
+                onChange={(e, value) => setValue(value)}
+              >
+                <Tab label="PRODUCTS" />
+                <Tab label="SERVİCES" />
+                <Tab label="CONTACT" />
+                <Tab label="ABOUT" />
+              </Tabs>
+              <Stack spacing={2} direction="row" sx={{ marginLeft: "auto" }}>
+                <Button variant="contained">Login</Button>
+                <Button variant="contained">Sign-Up</Button>
+              </Stack>
+            </>
+          )}
+          {/* <Tabs
             textColor="white"
             value={value}
             indicatorColor="secondary"
@@ -43,9 +69,9 @@ const Header = () => {
           <Stack spacing={2} direction="row" sx={{ marginLeft: "auto" }}>
             <Button variant="contained">Login</Button>
             <Button variant="contained">Sign-Up</Button>
-          </Stack>
+          </Stack> */}
         </Toolbar>
-        <DrawerComp />
+        {/* <DrawerComp /> */}
       </AppBar>
     </React.Fragment>
   );
