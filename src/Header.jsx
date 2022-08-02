@@ -15,7 +15,7 @@ import React from "react";
 import ShoppingCartCheckoutIcon from "@mui/icons-material/ShoppingCartCheckout";
 import DrawerComp from "./DrawerComp";
 
-const PAGES = ["PRODUCTS"];
+const PAGES = ["PRODUCTS", "SERVİCES", "CONTACT", "ABOUT"];
 
 const Header = () => {
   const [value, setValue] = React.useState("two");
@@ -33,21 +33,27 @@ const Header = () => {
           <ShoppingCartCheckoutIcon />
           {isMatch ? (
             <>
-              <Typography>SHOP</Typography>
+              <Typography sx={{ fontSize: "2rem", paddingLeft: "10%" }}>
+                SHOP
+              </Typography>
               <DrawerComp />
             </>
           ) : (
             <>
               <Tabs
+                sx={{ marginLeft: "auto" }}
                 textColor="white"
                 value={value}
                 indicatorColor="secondary"
                 onChange={(e, value) => setValue(value)}
               >
-                <Tab label="PRODUCTS" />
+                {PAGES.map((page, index) => (
+                  <Tab key={index} label={page} />
+                ))}
+                {/* <Tab label="PRODUCTS" />
                 <Tab label="SERVİCES" />
                 <Tab label="CONTACT" />
-                <Tab label="ABOUT" />
+                <Tab label="ABOUT" /> */}
               </Tabs>
               <Stack spacing={2} direction="row" sx={{ marginLeft: "auto" }}>
                 <Button variant="contained">Login</Button>

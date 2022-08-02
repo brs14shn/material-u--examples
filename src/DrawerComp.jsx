@@ -8,6 +8,7 @@ import {
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import React, { useState } from "react";
+const PAGES = ["PRODUCTS", "SERVİCES", "CONTACT", "ABOUT", "LOGİN", "LOGOUT"];
 
 const DrawerComp = () => {
   const [openDrawer, setOpenDrawer] = useState(false);
@@ -15,11 +16,18 @@ const DrawerComp = () => {
     <React.Fragment>
       <Drawer open={openDrawer} onClose={() => setOpenDrawer(false)}>
         <List>
-          <ListItemButton>
+          {PAGES.map((page, index) => (
+            <ListItemButton onClick={() => setOpenDrawer(false)} key={index}>
+              <ListItemIcon>
+                <ListItemText>{page}</ListItemText>
+              </ListItemIcon>
+            </ListItemButton>
+          ))}
+          {/* <ListItemButton>
             <ListItemIcon>
               <ListItemText>Login</ListItemText>
             </ListItemIcon>
-          </ListItemButton>
+          </ListItemButton> */}
         </List>
       </Drawer>
       <IconButton
