@@ -33,7 +33,7 @@ const Header = () => {
           <ShoppingCartCheckoutIcon />
           {isMatch ? (
             <>
-              <Typography sx={{ fontSize: "2rem", paddingLeft: "10%" }}>
+              <Typography sx={{ fontSize: "1.5rem", paddingLeft: "10%" }}>
                 SHOP
               </Typography>
               <DrawerComp />
