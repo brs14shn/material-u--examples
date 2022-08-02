@@ -1,16 +1,19 @@
 import {
   Drawer,
+  IconButton,
   List,
   ListItemButton,
   ListItemIcon,
   ListItemText,
 } from "@mui/material";
-import React from "react";
+import MenuIcon from "@mui/icons-material/Menu";
+import React, { useState } from "react";
 
 const DrawerComp = () => {
+  const [openDrawer, setOpenDrawer] = useState(false);
   return (
     <React.Fragment>
-      <Drawer open={true}>
+      <Drawer open={openDrawer} onClose={() => setOpenDrawer(false)}>
         <List>
           <ListItemButton>
             <ListItemIcon>
@@ -19,6 +22,9 @@ const DrawerComp = () => {
           </ListItemButton>
         </List>
       </Drawer>
+      <IconButton onClick={() => setOpenDrawer(!openDrawer)}>
+        <MenuIcon />
+      </IconButton>
     </React.Fragment>
   );
 };

@@ -6,6 +6,8 @@ import {
   Typography,
   Tab,
   Stack,
+  useMediaQuery,
+  useTheme,
 } from "@mui/material";
 import Button from "@mui/material/Button";
 
@@ -15,9 +17,12 @@ import DrawerComp from "./DrawerComp";
 
 const Header = () => {
   const [value, setValue] = React.useState("two");
-  //   const handleChange = (event, newValue) => {
-  //     setValue(newValue);
-  //   };
+
+  const theme = useTheme();
+  //   console.log(theme);
+
+  const isMatch = useMediaQuery(theme.breakpoints.down("md"));
+  console.log(isMatch);
 
   return (
     <React.Fragment>
