@@ -1,11 +1,13 @@
 import './App.css';
 import Header from './Header';
+import Main from './Main';
 
 function App() {
   
   return (
-    <div sx={{backgroundColor:"primary"}}>
-      <Header/>  
+    <div >
+      {/* <Header/>  */}
+      <Main/>
     </div>
   );
 }
